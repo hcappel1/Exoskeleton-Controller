@@ -1,0 +1,17 @@
+<library path="lib/libLagAmplificationController">
+  <class name="p0_lag_compensator/LagAmplificationController" type="p0_lag_compensator::LagAmplificationController" base_class_type="nodelet::Nodelet">
+  <!--       pkg_name/library_name                namespace::class_name                    always_the_same-->
+  <description>
+    Sets up a high level nodelet controller for p0, with amplification built into a composite open loop plant signal for which the zero dynamics is the desired amplification behavior. The controller includes a dynamic lag compensator for this open loop signal boosts low frequency gain and sets up a more predictable low frequency crossover point. Note that, since this controller does not include a disturbance observer, it must be robust to changing human impedance, and this is achieved heuristically.
+  </description>
+  </class>
+</library>
+
+<library path="lib/libLagCompGravComp">
+  <class name="p0_lag_compensator/LagCompGravComp" type="p0_lag_compensator::LagAmplificationController" base_class_type="nodelet::Nodelet">
+  <!--       pkg_name/library_name                namespace::class_name                    always_the_same-->
+  <description>
+    Sets up a high level nodelet controller for p0, with amplification built into a composite open loop plant signal for which the zero dynamics is the desired amplification behavior. The controller includes a dynamic lag compensator for this open loop signal boosts low frequency gain and sets up a more predictable low frequency crossover point. Note that, since this controller does not include a disturbance observer, it must be robust to changing human impedance, and this is achieved heuristically.
+  </description>
+  </class>
+</library>

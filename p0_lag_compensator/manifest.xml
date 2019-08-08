@@ -1,0 +1,27 @@
+<package>
+  <description brief="p0_lag_compensator">
+
+     Sets up a high level nodelet controller for p0, with amplification built into a composite open loop plant signal for which the zero dynamics is the desired amplification behavior. The controller includes a dynamic lag compensator for this open loop signal boosts low frequency gain and sets up a more predictable low frequency crossover point. Note that, since this controller does not include a disturbance observer, it must be robust to changing human impedance, and this is achieved heuristically.
+  </description>
+  <author>Gray Thomas, Binghan He</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/p0_lag_compensator</url>
+  <depend package="std_msgs"/>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="apptronik_srvs"/>
+  <depend package="apptronik_msgs"/>
+  <depend package="synapse"/>
+  <depend package="apptronik_ros"/>
+  <depend package="apptronik_ros_utils"/>
+  <depend package="apptronik_system"/>
+  <depend package="pluginlib"/>
+  <depend package="nodelet"/>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib"/>
+  </export>
+
+</package>

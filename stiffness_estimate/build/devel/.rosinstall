@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/apptronik/ros/apptronik_hcrl/stiffness_estimate/build/devel/setup.sh

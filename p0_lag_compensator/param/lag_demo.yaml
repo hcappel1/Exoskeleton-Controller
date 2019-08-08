@@ -1,0 +1,30 @@
+#Cuff Control Yaml
+lag1_zero_rad_s: 0.03
+lag1_pole_rad_s: 0.01
+lag2_zero_rad_s: 0.3
+lag2_pole_rad_s: 0.1
+lag3_zero_rad_s: 3.0
+lag3_pole_rad_s: 1.0
+lag4_zero_rad_s: 30.
+lag4_pole_rad_s: 10.
+lag5_zero_rad_s: 100.
+lag5_pole_rad_s: 300.
+
+ignore_cuff: False # Allows measurement of human and env admittance (as different tests).
+meta_compensator_gain: 100. # Controller gain * (Kp + 1)
+amplification_factor: 1. # Kp
+amplification_mode: 0 
+cuff_filter_wn_rad_s: 60.
+cuff_filter_zt_rad_s: .707
+
+ignore_damp: False # Allows measurement of human and env admittance (as different tests).
+damping: -1.5 # Virtual damping
+damp_filter_wn_rad_s: 60.
+damp_filter_zt_rad_s: .707
+
+chirp_low_freq_rps: 4.
+chirp_high_freq_rps: 40.
+chirp_amplitude: 5.
+chirp_offset: 0.
+chirp_duration: 150
+chirp_mode: 0

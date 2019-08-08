@@ -1,0 +1,13 @@
+#Cuff Control Yaml
+lag_zero_rad_s: 2.
+lag_pole_rad_s: 0.02
+lead_zero_rad_s: 20.
+lead_pole_rad_s: 20.
+meta_compensator_gain: 100. #Controller gain * (Kp + 1)
+amplification_factor: 19. #Kp
+amplification_mode: 0 #Kp
+ignore_cuff: False # Allows measurement of human and env admittance (as different tests).
+added_mass: 2.31
+arm_length: 0.479
+enable_grav_comp: True
+enable_load_attn: True

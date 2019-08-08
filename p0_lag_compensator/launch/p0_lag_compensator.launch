@@ -1,0 +1,19 @@
+<launch>
+  <arg name="use_fake_faults" default="false" />
+
+  <!-- Load ethercat master (synapse) into process -->
+  <include file="$(find synapse)/launch/synapse.launch"/>
+
+  <!-- Load high-level control system into process -->
+  <node pkg="nodelet" type="nodelet" name="high_level_system" output="screen"
+    args="load p0_lag_compensator/LagAmplificationController synapse_group --no-bond">
+
+    <!-- <rosparam file="$(find p0_lag_compensator)/param/lag_test_1.yaml" command="load"/> -->
+    <rosparam file="$(find p0_lag_compensator)/param/lag_demo.yaml" command="load"/>
+
+    <param name="use_fake_faults" value="$(arg use_fake_faults)" />
+    <param name="max_num_service_call_threads" type="int" value="1" />
+  </node>
+
+
+</launch>

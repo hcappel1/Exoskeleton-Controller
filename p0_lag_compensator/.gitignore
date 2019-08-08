@@ -1,0 +1,6 @@
+*.bin
+*.out
+*.tar.gz
+*.tbz
+*.so
+build/*
