@@ -3,15 +3,19 @@ import numpy as np
 import pickle
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.externals import joblib
+import rospy
+from std_msgs.msg import String
+
+
+
 def load():
-	dt = RandomForestRegressor(n_estimators=100, random_state=False, verbose=False)
 	filename = 'forest_full_v4.pkl'
 	dt = pickle.load(open(filename, 'rb'))
 	return dt
 
 def add(a,dt):
 	
-	a= np.reshape(a, (1, 7))
+	a = np.reshape(a, (1, 7))
 	# # dt = joblib.load('my_model.h5')
 	# # print (a.shape)
 	y_pred =  dt.predict(a)
@@ -21,9 +25,33 @@ def add(a,dt):
 	# print (a)
 	# return a
 
-if __name__ == "__main__":
-	a=[1,2,3,4,5,6,7]
+def DataLog(data):
+	return data
+
+
+def communicate():
+	rospy.init_node('stiffness_estimator', anonymous = True)
+	rate = rospy.Rate(10)
+
+	sensor_vals = rospy.Subscriber("sensor_input", Float32MultiArray, DataLog)
+
 	dt = load()
-	b=add(a,dt)
-	print(b)
+	stiffness = add(sensor_vals,dt)	
+
+	pub = rospy.Publisher('stiffness_value', Float32)
+	while not rospy.is_shutdown():
+		rospy.loginfo(stiffness)
+		pub.Publish(stiffness)
+		rate.sleep()
+
+if __name__ == "__main__":
+	
+	try:
+		communicate()
+	except rospy.ROSInterruptException:
+		pass
+
+
+
+
 
